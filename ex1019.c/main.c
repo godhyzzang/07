@@ -1,16 +1,20 @@
 #include <stdio.h>
-void f(void);
-int i;
+void sub(void);
+
 int main(void)
 {
-	for (i = 0; i < 5; i++)
-	{
-		f();
-	}
+	int i;
+	for (i = 0; i < 3; i++)
+		sub();
 	return 0;
 }
-void f(void)
+
+void sub(void)
 {
-	for (int i = 0; i < 10; i++)//f함수 블록 안에서만 쓰이는 i 변수. 전역변수 i와 다름. 
-		printf("#");
+	int auto_count = 0;
+	static int static_count = 0;
+	auto_count++;
+	static_count++;
+	printf("auto_count = % d\n", auto_count);
+	printf("static_count = % d\n", static_count);
 }
