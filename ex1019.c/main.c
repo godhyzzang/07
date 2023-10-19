@@ -1,16 +1,16 @@
 #include <stdio.h>
-
+void f(void);
+int i;
 int main(void)
 {
-	//int i;//initialize is required
-	int i = 10;
-	printf("함수 호출전 i = % d\n", i);
-	i =inc(i);
-	printf("함수 호출후 i = % d\n", i);
+	for (i = 0; i < 5; i++)
+	{
+		f();
+	}
 	return 0;
 }
-int inc(int counter)
+void f(void)
 {
-	counter++;
-	return counter;
+	for (int i = 0; i < 10; i++)//f함수 블록 안에서만 쓰이는 i 변수. 전역변수 i와 다름. 
+		printf("#");
 }
